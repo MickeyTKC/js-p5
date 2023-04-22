@@ -165,7 +165,7 @@ const displayFrequency = () => {
     }
     space++;
   }
-
+  // time 6
   const cur = sound.currentTime();
   if(cur >= time[6] && cur <= time[7]){
     if(cur <= time[6]+4){
@@ -278,7 +278,6 @@ const drawButterfly = (a,os,c)=>{
     {x:388,y:107},
     {x:348,y:158},
   ]
-
   stroke(`rgba(${c},${c},${c},${a})`);
   line(points[0].x-os, points[0].y-0, points[1].x-os, points[1].y-os);
   line(points[1].x-os, points[1].y-os, points[2].x-os, points[2].y+0);
@@ -295,7 +294,6 @@ const drawButterfly = (a,os,c)=>{
 
 const displayButterflyEffect = (a,of,c) =>{
   for(i=0;i<10;i++){
-    drawButterfly(a,i,c);
     if(a>0.05){
       a -= 0.05
     }
@@ -306,7 +304,7 @@ const displayButterflyEffect = (a,of,c) =>{
   const y = 172
   const levels = width / 24;
   const colorOfLevel = 5;
-  var color = 255;
+  var color = 200;
   var alpha = 0.4;
   var color_rgba = `rgba(${color},${color},${color},${alpha})`;
 
@@ -314,11 +312,11 @@ const displayButterflyEffect = (a,of,c) =>{
   fill(color_rgba);
   circle(x, y, radius);
   for (i = 0; i < levels; i++) {
-    stroke(`rgba(${color},${color},${color},${alpha})`);
+    stroke(`rgba(${color-50+i},${color-30+i},${color+i},${alpha})`);
     noFill();
     circle(x, y, radius);
     if (!(i % 5)) {
-      alpha += 0.05;
+      alpha -= 0.01;
     }
     if (!(i % 100) && color >= colorOfLevel) {
       color -= colorOfLevel;
